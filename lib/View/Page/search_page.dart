@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CategoriesPage extends StatefulWidget {
-  const CategoriesPage({ Key key }) : super(key: key);
+class SearchPage extends StatefulWidget {
+  const SearchPage({ Key key }) : super(key: key);
 
   @override
-  _CategoriesPageState createState() => _CategoriesPageState();
+  _SearchPageState createState() => _SearchPageState();
 }
 
-class _CategoriesPageState extends State<CategoriesPage> with SingleTickerProviderStateMixin {
+class _SearchPageState extends State<SearchPage> with SingleTickerProviderStateMixin {
   final GlobalKey _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -24,10 +24,10 @@ class _CategoriesPageState extends State<CategoriesPage> with SingleTickerProvid
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('CategoriesPage'),
+        title: const Text('SearchPage'),
       ),
       body: const SizedBox.expand(
-        child: Text('CategoriesPage'),
+        child: Text('SearchPage'),
       ),
     );
   }

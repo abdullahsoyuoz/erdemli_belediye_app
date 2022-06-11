@@ -6,4 +6,6 @@ class AppColors {
   static Color secondaryColor = const Color.fromARGB(255, 56, 167, 188);
   static Color tertiaryColor = const Color(0xffcccccc);
   static Color accentColor = const Color.fromARGB(255, 225, 51, 94);
+  static Color grey = const Color(0xff3E434C);
+  static Color black = const Color(0xff101214);
 }

@@ -24,7 +24,8 @@ class _VideosPageState extends State<VideosPage> with SingleTickerProviderStateM
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('VideosPage'),
+        title: const Text('VİDEOLAR', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 21),),
+        centerTitle: false,
       ),
       body: const SizedBox.expand(
         child: Text('VideosPage'),

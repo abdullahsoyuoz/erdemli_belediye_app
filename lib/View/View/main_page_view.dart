@@ -1,8 +1,7 @@
 import 'package:animations/animations.dart';
-import 'package:erdemli_bel_app/Controller/extensions.dart';
 import 'package:erdemli_bel_app/Controller/main_page_view_provider.dart';
-import 'package:erdemli_bel_app/View/Page/categories_page.dart';
-import 'package:erdemli_bel_app/View/Page/contact_us_page.dart';
+import 'package:erdemli_bel_app/View/Page/Category/categories_page.dart';
+import 'package:erdemli_bel_app/View/Page/Contact/contact_us_page.dart';
 import 'package:erdemli_bel_app/View/Page/home_page.dart';
 import 'package:erdemli_bel_app/View/Page/videos_page.dart';
 import 'package:erdemli_bel_app/View/Style/colors.dart';
@@ -51,7 +50,7 @@ class _MainPageViewState extends State<MainPageView>
               return SharedAxisTransition(
                 animation: animation,
                 secondaryAnimation: secondaryAnimation,
-                transitionType: SharedAxisTransitionType.vertical,
+                transitionType: SharedAxisTransitionType.scaled,
                 child: child,
               );
             },
@@ -66,7 +65,7 @@ class _MainPageViewState extends State<MainPageView>
       return BottomNavigationBar(
         backgroundColor: AppColors.tertiaryColor,
         currentIndex: provider.getIndex(),
-        selectedItemColor: AppColors.mainColor,
+        selectedItemColor: AppColors.primaryColor,
         unselectedItemColor: Colors.black.withOpacity(.3),
         elevation: 0,
         type: BottomNavigationBarType.fixed,

@@ -1,5 +1,6 @@
 import 'package:erdemli_bel_app/Controller/main_page_view_provider.dart';
 import 'package:erdemli_bel_app/View/Page/Getting_started/splash_page.dart';
+import 'package:erdemli_bel_app/View/Style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,9 +9,10 @@ void main() {
     providers: [
       ChangeNotifierProvider(create: (context) => MainPageIndexer(),)
     ],
-    child: const MaterialApp(
+    child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AppStarter(),
+      theme: appTheme.copyWith(),
+      home: const AppStarter(),
     ),
   ));
 }

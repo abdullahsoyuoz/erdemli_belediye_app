@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ContactUsPage extends StatefulWidget {
-  const ContactUsPage({ Key key }) : super(key: key);
+class NotificationsPage extends StatefulWidget {
+  const NotificationsPage({ Key key }) : super(key: key);
 
   @override
-  _ContactUsPageState createState() => _ContactUsPageState();
+  _NotificationsPageState createState() => _NotificationsPageState();
 }
 
-class _ContactUsPageState extends State<ContactUsPage> with SingleTickerProviderStateMixin {
+class _NotificationsPageState extends State<NotificationsPage> with SingleTickerProviderStateMixin {
   final GlobalKey _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -24,10 +24,10 @@ class _ContactUsPageState extends State<ContactUsPage> with SingleTickerProvider
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('ContactUsPage'),
+        title: const Text('NotificationsPage'),
       ),
       body: const SizedBox.expand(
-        child: Text('ContactUsPage'),
+        child: Text('NotificationsPage'),
       ),
     );
   }
