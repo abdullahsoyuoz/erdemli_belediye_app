@@ -55,10 +55,14 @@ class _HomePageState extends State<HomePage>
           mainScreenTapClose: true,
           moveMenuScreen: true,
           shrinkMainScreen: false,
-          menuScreen: const SizedBox.expand(child: Center(child: Text('Drawer'),),),
+          menuScreen: const SizedBox.expand(
+            child: Center(
+              child: Text('Drawer'),
+            ),
+          ),
           mainScreen: SizedBox.expand(
             child: CustomScrollView(
-              physics: const AlwaysScrollableScrollPhysics( 
+              physics: const AlwaysScrollableScrollPhysics(
                   parent: BouncingScrollPhysics()),
               slivers: [
                 buildAppBar(context),
@@ -87,13 +91,17 @@ class _HomePageState extends State<HomePage>
           // floating: false,
           delegate: CustomSliverPersistentHeader(
             context,
-            child: DefaultTabController(
-              length: categoryList.length,
+            backgroundColor: Colors.white,
+            child: Material(
+              elevation: 2,
               child: TabBar(
                 controller: tabController,
                 physics: const AlwaysScrollableScrollPhysics(
                     parent: BouncingScrollPhysics()),
                 indicatorSize: TabBarIndicatorSize.label,
+                isScrollable: true,
+                indicatorColor: AppColors.accentColor,
+                indicatorWeight: 2,
                 tabs: categoryList
                     .map((e) => Center(
                             child: Padding(
@@ -107,9 +115,6 @@ class _HomePageState extends State<HomePage>
                           ),
                         )))
                     .toList(),
-                isScrollable: true,
-                indicatorColor: AppColors.primaryColor,
-                indicatorWeight: 2,
               ),
             ),
             maxExtentValue: 50,
@@ -149,6 +154,7 @@ class _HomePageState extends State<HomePage>
       automaticallyImplyLeading: false,
       centerTitle: false,
       toolbarHeight: 70,
+      elevation: 2,
       pinned: true,
       iconTheme: IconTheme.of(context).copyWith(size: 30),
       title: Row(

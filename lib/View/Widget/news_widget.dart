@@ -19,7 +19,8 @@ class NewsWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Material(
-          elevation: 10,
+          elevation: 2,
+          color: Colors.white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Padding(
@@ -34,47 +35,12 @@ class NewsWidget extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(4),
-                                      color: data.category.color),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 10,
-                                      vertical: 3,
-                                    ),
-                                    child: Text(
-                                      data.category.title,
-                                      style: const TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 5.0),
-                                  child: data.containVideo
-                                      ? FaIcon(
-                                          FontAwesomeIcons.video,
-                                          color: data.category.color
-                                              .withOpacity(.75),
-                                        )
-                                      : const SizedBox(),
-                                )
-                              ],
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                              child: Text(
-                                data.title,
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w600),
-                              ),
+                            Text(
+                              data.title,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400),
                             ),
                           ],
                         )),
@@ -83,20 +49,56 @@ class NewsWidget extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
+                  padding: const EdgeInsets.only(top: 15.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.only(right: 3.0),
-                        child: FaIcon(
-                          FontAwesomeIcons.clock,
-                          size: 14,
-                        ),
+                      Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4),
+                                color: data.category.color),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 3,
+                              ),
+                              child: Text(
+                                data.category.title,
+                                style: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5.0),
+                            child: data.containVideo
+                                ? FaIcon(
+                                    FontAwesomeIcons.video,
+                                    color: data.category.color.withOpacity(.75),
+                                  )
+                                : const SizedBox(),
+                          )
+                        ],
                       ),
-                      Text(
-                        data.dateTime.dateFormat,
-                        style: const TextStyle(fontWeight: FontWeight.w700),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(right: 3.0),
+                            child: FaIcon(
+                              FontAwesomeIcons.clock,
+                              size: 14,
+                            ),
+                          ),
+                          Text(
+                            data.dateTime.dateFormat,
+                            style: const TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                        ],
                       ),
                     ],
                   ),
