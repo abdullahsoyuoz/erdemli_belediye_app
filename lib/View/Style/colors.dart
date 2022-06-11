@@ -8,4 +8,5 @@ class AppColors {
   static Color accentColor = const Color.fromARGB(255, 225, 51, 94);
   static Color grey = const Color(0xff3E434C);
   static Color black = const Color(0xff101214);
+  static Color orange = const Color.fromARGB(255, 250, 180, 26);
 }

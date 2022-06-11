@@ -1,5 +1,7 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:erdemli_bel_app/Model/Dummy/categories.dart';
 import 'package:erdemli_bel_app/Model/Dummy/news.dart';
+import 'package:erdemli_bel_app/View/Style/colors.dart';
 import 'package:erdemli_bel_app/View/Widget/news_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -61,17 +63,44 @@ class _CategoryDetailViewState extends State<CategoryDetailView> {
                         ),
                       ),
                     ),
+                    IconButton(
+                onPressed: () {
+                  setState(() {
+                    widget.data.follow = !widget.data.follow;
+                  });
+                },
+                iconSize: 20,
+                icon: Swing(
+                    animate: false,
+                    controller: (c) {
+                      if (widget.data.follow) {
+                        // TODO: tıklanıldığında tetikletecen
+                        c.forward().whenComplete(() => c.reset());
+                      }
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white.withOpacity(1),
+                      radius: 20,
+                      child: Padding(
+                        padding: const EdgeInsets.all(3.0),
+                        child: FaIcon(
+                          FontAwesomeIcons.solidBell,
+                          size: 20,
+                          color: widget.data.follow
+                              ? AppColors.accentColor
+                              : AppColors.black,
+                        ),
+                      ),
+                    )),
+              ),
                   ],
                 ),
               ),
-              background: Hero(
-                tag: widget.data.hashCode,
-                child: Image.network(
-                  widget.data.imageUrl,
-                  fit: BoxFit.cover,
-                  color: Colors.black.withOpacity(.5),
-                  colorBlendMode: BlendMode.darken,
-                ),
+              background: Image.network(
+                widget.data.imageUrl,
+                fit: BoxFit.cover,
+                color: Colors.black.withOpacity(.5),
+                colorBlendMode: BlendMode.darken,
               ),
             ),
           ),

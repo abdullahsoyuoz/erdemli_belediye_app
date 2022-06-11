@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key key}) : super(key: key);
@@ -38,7 +37,7 @@ class _OnboardingPageState extends State<OnboardingPage>
         body: SafeArea(
           child: IntroductionScreen(
             onDone: () {
-              Navigator.push(context, CupertinoPageRoute(builder: (context) => const MainPageView(),));
+              Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context) => const MainPageView(),), (route) => false);
             },
             showSkipButton: false,
             showBackButton: false,

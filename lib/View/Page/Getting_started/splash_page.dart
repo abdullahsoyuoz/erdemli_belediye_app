@@ -1,6 +1,5 @@
 import 'package:erdemli_bel_app/Controller/asset_constants.dart';
 import 'package:erdemli_bel_app/View/Page/Getting_started/onboarding_page.dart';
-import 'package:erdemli_bel_app/View/View/main_page_view.dart';
 import 'package:erdemli_bel_app/View/Style/colors.dart';
 import 'package:erdemli_bel_app/View/Widget/slide_animate.dart';
 import 'package:flutter/cupertino.dart';

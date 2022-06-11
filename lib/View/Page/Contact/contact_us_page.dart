@@ -78,7 +78,7 @@ class _ContactUsPageState extends State<ContactUsPage>
                   text: 'ERDEMLİ',
                   style: TextStyle(fontWeight: FontWeight.w800, fontSize: 21)),
               TextSpan(
-                  text: 'BELEDİYESİ',
+                  text: ' BELEDİYESİ',
                   style: TextStyle(fontWeight: FontWeight.w300, fontSize: 21)),
             ], style: TextStyle(color: Colors.black)),
           ),
@@ -91,46 +91,49 @@ class _ContactUsPageState extends State<ContactUsPage>
               final data = contactList[index];
               return Padding(
                 padding: const EdgeInsets.only(bottom: 10.0),
-                child: SizedBox(
-                  height: 70,
-                  child: Card(
-                    color: AppColors.primaryColor,
-                    elevation: 5,
-                    margin: EdgeInsets.zero,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SizedBox(
-                                  width: 40,
-                                  child: Center(
-                                      child: FaIcon(
-                                    data.icon,
-                                    size: 30,
-                                    color: Colors.white,
-                                  ))),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Text(
-                                  data.title,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 17,
-                                      color: Colors.white),
+                child: GestureDetector(
+                  onTap: () => contactPageRouteHelper(context, index),
+                  child: SizedBox(
+                    height: 70,
+                    child: Card(
+                      color: AppColors.primaryColor,
+                      elevation: 5,
+                      margin: EdgeInsets.zero,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                    width: 40,
+                                    child: Center(
+                                        child: FaIcon(
+                                      data.icon,
+                                      size: 30,
+                                      color: Colors.white,
+                                    ))),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    data.title,
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 17,
+                                        color: Colors.white),
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          FaIcon(
-                            FontAwesomeIcons.chevronRight,
-                            color: AppColors.accentColor,
-                          )
-                        ],
+                              ],
+                            ),
+                            FaIcon(
+                              FontAwesomeIcons.chevronRight,
+                              color: AppColors.accentColor,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),

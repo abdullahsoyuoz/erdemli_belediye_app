@@ -4,7 +4,6 @@ import 'package:erdemli_bel_app/Controller/extensions.dart';
 import 'package:erdemli_bel_app/Model/Dummy/categories.dart';
 import 'package:erdemli_bel_app/Model/Dummy/news.dart';
 import 'package:erdemli_bel_app/View/Page/notify_page.dart';
-import 'package:erdemli_bel_app/View/Page/search_page.dart';
 import 'package:erdemli_bel_app/View/Style/colors.dart';
 import 'package:erdemli_bel_app/View/Widget/news_widget.dart';
 import 'package:erdemli_bel_app/View/Widget/slider_news_item.dart';

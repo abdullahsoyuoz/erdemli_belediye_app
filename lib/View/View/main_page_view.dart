@@ -4,7 +4,6 @@ import 'package:erdemli_bel_app/View/Page/Category/categories_page.dart';
 import 'package:erdemli_bel_app/View/Page/Contact/contact_us_page.dart';
 import 'package:erdemli_bel_app/View/Page/home_page.dart';
 import 'package:erdemli_bel_app/View/Page/videos_page.dart';
-import 'package:erdemli_bel_app/View/Style/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -65,7 +64,7 @@ class _MainPageViewState extends State<MainPageView>
       return DecoratedBox(
         decoration: BoxDecoration(
           boxShadow: [
-            BoxShadow(color: Colors.black.withOpacity(.3), offset: Offset(0, 0), blurRadius: 3)
+            BoxShadow(color: Colors.black.withOpacity(.3), offset: const Offset(0, 0), blurRadius: 3)
           ]
         ),
         child: BottomNavigationBar(

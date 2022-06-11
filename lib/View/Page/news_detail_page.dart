@@ -2,10 +2,8 @@ import 'dart:math';
 
 import 'package:erdemli_bel_app/Controller/extensions.dart';
 import 'package:erdemli_bel_app/Model/Dummy/news.dart';
-import 'package:erdemli_bel_app/View/Style/colors.dart';
 import 'package:erdemli_bel_app/View/Widget/sliver_header.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sliver_tools/sliver_tools.dart';
@@ -46,6 +44,8 @@ class _NewsDetailState extends State<NewsDetail>
         key: _scaffoldKey,
         body: SafeArea(
           child: CustomScrollView(
+            shrinkWrap: true,
+            physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
             slivers: [
               SliverAppBar(
                 toolbarHeight: 70,
@@ -65,7 +65,7 @@ class _NewsDetailState extends State<NewsDetail>
                   ],
                 ),
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Image.network(
+                  background: widget.data.containVideo ? YoutubePlayer(controller: youtubeController) : Image.network(
                     widget.data.imageUrl,
                     fit: BoxFit.cover,
                   ),
@@ -164,13 +164,13 @@ class _NewsDetailState extends State<NewsDetail>
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         color: Theme.of(context).scaffoldBackgroundColor,
-                        boxShadow: [BoxShadow(color: Colors.black.withOpacity(.2), offset: Offset(0, 2), blurRadius: 1)]
+                        boxShadow: [BoxShadow(color: Colors.black.withOpacity(.2), offset: const Offset(0, 2), blurRadius: 1)]
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
                           widget.data.title,
-                          maxLines: 3,
+                          maxLines: 4,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.montserrat(
                               fontSize: 18, fontWeight: FontWeight.w600),
@@ -179,11 +179,6 @@ class _NewsDetailState extends State<NewsDetail>
                     ),
                   ),
                 ),
-                widget.data.containVideo
-                    ? SliverToBoxAdapter(
-                        child: YoutubePlayer(controller: youtubeController),
-                      )
-                    : SizedBox(),
                 SliverPadding(
                   padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   sliver: SliverToBoxAdapter(
