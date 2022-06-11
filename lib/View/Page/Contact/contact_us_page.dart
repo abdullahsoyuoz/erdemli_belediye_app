@@ -141,38 +141,46 @@ class _ContactUsPageState extends State<ContactUsPage>
           Padding(
             padding: const EdgeInsets.only(top: 20.0),
             child: SizedBox(
-              height: 70,
+              height: 50,
               width: context.width,
-              child: ListView.builder(
-                shrinkWrap: true,
-                physics: const AlwaysScrollableScrollPhysics(
-                    parent: BouncingScrollPhysics()),
-                scrollDirection: Axis.horizontal,
-                itemCount: contactSocialMediaList.length,
-                itemBuilder: (c, index) {
-                  final data = contactSocialMediaList[index];
-                  return GestureDetector(
-                    onTap: () async {
-                      if (await canLaunchUrl(Uri.parse(data.url))) {
-                        launchUrl(Uri.parse(data.url));
-                      }
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 20.0),
-                      child: CircleAvatar(
-                        radius: 40,
-                        backgroundColor: data.color,
-                        child: Center(
+              // child: ListView.builder(
+              //   shrinkWrap: true,
+              //   physics: const AlwaysScrollableScrollPhysics(
+              //       parent: BouncingScrollPhysics()),
+              //   scrollDirection: Axis.horizontal,
+              //   itemCount: contactSocialMediaList.length,
+              //   itemBuilder: (c, index) {
+              //     final data = contactSocialMediaList[index];
+                  
+              //   },
+              // ),
+              child: FittedBox(
+                fit: BoxFit.fitHeight,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: contactSocialMediaList.map((e){
+                    return GestureDetector(
+                      onTap: () async {
+                        if (await canLaunchUrl(Uri.parse(e.url))) {
+                          launchUrl(Uri.parse(e.url));
+                        }
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 20.0),
+                        child: CircleAvatar(
+                          radius: 30,
+                          backgroundColor: e.color,
                           child: FaIcon(
-                            data.icon,
-                            size: 40,
+                            e.icon,
+                            size: 30,
                             color: Colors.white,
                           ),
                         ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  }).toList(),
+                ),
               ),
             ),
           )
@@ -212,7 +220,8 @@ class ContactInfoWidget extends StatelessWidget {
   final String content;
   final IconData icon;
   final VoidCallback callback;
-  const ContactInfoWidget({Key key, this.content, this.icon, this.callback});
+  const ContactInfoWidget({Key key, this.content, this.icon, this.callback})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

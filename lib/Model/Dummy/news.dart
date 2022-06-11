@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:erdemli_bel_app/Model/Dummy/categories.dart';
 import 'package:faker/faker.dart';
 
-String videoUrl = "LXb3EKWsInQ";
+String videoUrl = "vvED8ENPAlQ";
 
 class News {
   String title;
@@ -29,13 +29,13 @@ List<News> newsList = List.generate(40, (index) {
   return News(
     title: Faker()
         .lorem
-        .sentences(1)
+        .sentences(2)
         .toString()
         .replaceAll("[", "")
         .replaceAll("]", ""),
     description: Faker()
         .lorem
-        .sentences(3)
+        .sentences(36)
         .toString()
         .replaceAll("[", "")
         .replaceAll("]", ""),

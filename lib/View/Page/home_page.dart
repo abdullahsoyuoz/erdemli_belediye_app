@@ -55,10 +55,10 @@ class _HomePageState extends State<HomePage>
           mainScreenTapClose: true,
           moveMenuScreen: true,
           shrinkMainScreen: false,
-          menuScreen: SizedBox.expand(child: Center(child: Text('Drawer'),),),
+          menuScreen: const SizedBox.expand(child: Center(child: Text('Drawer'),),),
           mainScreen: SizedBox.expand(
             child: CustomScrollView(
-              physics: const AlwaysScrollableScrollPhysics(
+              physics: const AlwaysScrollableScrollPhysics( 
                   parent: BouncingScrollPhysics()),
               slivers: [
                 buildAppBar(context),
@@ -158,7 +158,7 @@ class _HomePageState extends State<HomePage>
             onPressed: () {
               zoomDrawerController.toggle.call();
             },
-            icon: FaIcon(
+            icon: const FaIcon(
               FontAwesomeIcons.bars,
               size: 20,
             ),

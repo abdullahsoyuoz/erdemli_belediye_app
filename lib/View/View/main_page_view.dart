@@ -63,10 +63,10 @@ class _MainPageViewState extends State<MainPageView>
   Widget buildBottomNavBar() {
     return Consumer<MainPageIndexer>(builder: (context, provider, _) {
       return BottomNavigationBar(
-        backgroundColor: AppColors.tertiaryColor,
+        backgroundColor: AppColors.primaryColor,
         currentIndex: provider.getIndex(),
-        selectedItemColor: AppColors.primaryColor,
-        unselectedItemColor: Colors.black.withOpacity(.3),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white.withOpacity(.5),
         elevation: 0,
         type: BottomNavigationBarType.fixed,
         onTap: (index) {
