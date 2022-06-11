@@ -10,6 +10,8 @@ import 'package:erdemli_bel_app/View/Widget/slider_news_item.dart';
 import 'package:erdemli_bel_app/View/Widget/sliver_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/config.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
@@ -26,10 +28,12 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   final GlobalKey _scaffoldKey = GlobalKey<ScaffoldState>();
   TabController tabController;
+  ZoomDrawerController zoomDrawerController;
 
   @override
   void initState() {
     tabController = TabController(length: categoryList.length, vsync: this);
+    zoomDrawerController = ZoomDrawerController();
     super.initState();
   }
 
@@ -43,16 +47,26 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey,
-        body: SizedBox.expand(
-          child: CustomScrollView(
-            physics: const AlwaysScrollableScrollPhysics(
-                parent: BouncingScrollPhysics()),
-            slivers: [
-              buildAppBar(context),
-              buildSlider(context),
-              buildCategoryTab(context),
-              buildBody()
-            ],
+        body: ZoomDrawer(
+          controller: zoomDrawerController,
+          style: DrawerStyle.defaultStyle,
+          angle: 0,
+          mainScreenScale: 0,
+          mainScreenTapClose: true,
+          moveMenuScreen: true,
+          shrinkMainScreen: false,
+          menuScreen: SizedBox.expand(child: Center(child: Text('Drawer'),),),
+          mainScreen: SizedBox.expand(
+            child: CustomScrollView(
+              physics: const AlwaysScrollableScrollPhysics(
+                  parent: BouncingScrollPhysics()),
+              slivers: [
+                buildAppBar(context),
+                buildSlider(context),
+                buildCategoryTab(context),
+                buildBody()
+              ],
+            ),
           ),
         ));
   }
@@ -60,8 +74,7 @@ class _HomePageState extends State<HomePage>
   SliverList buildBody() {
     return SliverList(
         delegate: SliverChildListDelegate.fixed(List.generate(
-            newsList.length,
-            (index) => NewsWidget(data: newsList[index]))));
+            newsList.length, (index) => NewsWidget(data: newsList[index]))));
   }
 
   MultiSliver buildCategoryTab(BuildContext context) {
@@ -138,15 +151,34 @@ class _HomePageState extends State<HomePage>
       toolbarHeight: 70,
       pinned: true,
       iconTheme: IconTheme.of(context).copyWith(size: 30),
-      title: RichText(
-          text: const TextSpan(children: [
-        TextSpan(
-            text: 'ERDEMLİ',
-            style: TextStyle(fontWeight: FontWeight.w800, fontSize: 21)),
-        TextSpan(
-            text: 'BELEDİYESİ',
-            style: TextStyle(fontWeight: FontWeight.w300, fontSize: 21)),
-      ], style: TextStyle(color: Colors.black))),
+      title: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          IconButton(
+            onPressed: () {
+              zoomDrawerController.toggle.call();
+            },
+            icon: FaIcon(
+              FontAwesomeIcons.bars,
+              size: 20,
+            ),
+            iconSize: 20,
+            padding: EdgeInsets.zero,
+            visualDensity: VisualDensity.compact,
+          ),
+          Expanded(
+            child: RichText(
+                text: const TextSpan(children: [
+              TextSpan(
+                  text: 'ERDEMLİ',
+                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 21)),
+              TextSpan(
+                  text: 'BELEDİYESİ',
+                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 21)),
+            ], style: TextStyle(color: Colors.black))),
+          ),
+        ],
+      ),
       actions: [
         IconButton(
             onPressed: () {
