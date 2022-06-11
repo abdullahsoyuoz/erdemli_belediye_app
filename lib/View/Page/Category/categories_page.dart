@@ -77,20 +77,17 @@ class CategoryItem extends StatelessWidget {
                 )),
             Align(
               alignment: Alignment.bottomCenter,
-              child: Hero(
-                tag: data.hashCode + data.title.hashCode,
-                child: Text(
-                  data.title,
-                  style: GoogleFonts.openSans(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 1,
-                  ),
-                  overflow: TextOverflow.fade,
-                  maxLines: 2,
-                  softWrap: true,
+              child: Text(
+                data.title,
+                style: GoogleFonts.openSans(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 1,
                 ),
+                overflow: TextOverflow.fade,
+                maxLines: 2,
+                softWrap: true,
               ),
             )
           ],

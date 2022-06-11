@@ -161,14 +161,20 @@ class _NewsDetailState extends State<NewsDetail>
                     maxExtentValue: 100,
                     minExtentValue: 100,
                     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                      child: Text(
-                        widget.data.title,
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.montserrat(
-                            fontSize: 18, fontWeight: FontWeight.w600),
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).scaffoldBackgroundColor,
+                        boxShadow: [BoxShadow(color: Colors.black.withOpacity(.2), offset: Offset(0, 2), blurRadius: 1)]
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: Text(
+                          widget.data.title,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.montserrat(
+                              fontSize: 18, fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ),
                   ),

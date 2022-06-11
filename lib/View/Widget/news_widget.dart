@@ -40,16 +40,27 @@ class NewsWidget extends StatelessWidget {
                               style: const TextStyle(
                                   color: Colors.black,
                                   fontSize: 17,
+                                  height: 1.5,
                                   fontWeight: FontWeight.w400),
                             ),
                           ],
                         )),
-                    const SizedBox(width: 20),
-                    Expanded(flex: 1, child: Image.network(data.imageUrl))
+                    const SizedBox(width: 10),
+                    Expanded(
+                        flex: 1,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: AspectRatio(
+                              aspectRatio: 1,
+                              child: Image.network(
+                                data.imageUrl,
+                                fit: BoxFit.cover,
+                              )),
+                        ))
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 15.0),
+                  padding: const EdgeInsets.only(top: 10.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -85,24 +96,25 @@ class NewsWidget extends StatelessWidget {
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(right: 3.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.clock,
-                              size: 14,
-                            ),
-                          ),
-                          Text(
-                            data.dateTime.dateFormat,
-                            style: const TextStyle(fontWeight: FontWeight.w700),
-                          ),
-                        ],
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                     Padding(
+                        padding: const EdgeInsets.only(right: 3.0),
+                        child: FaIcon(
+                          FontAwesomeIcons.clock,
+                          size: 14,
+                          color: Colors.black.withOpacity(.5),
+                        ),
+                      ),
+                      Text(
+                        data.dateTime.dateFormat,
+                        style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black.withOpacity(0.5)),
                       ),
                     ],
                   ),
-                )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

@@ -62,26 +62,33 @@ class _MainPageViewState extends State<MainPageView>
 
   Widget buildBottomNavBar() {
     return Consumer<MainPageIndexer>(builder: (context, provider, _) {
-      return BottomNavigationBar(
-        backgroundColor: AppColors.primaryColor,
-        currentIndex: provider.getIndex(),
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white.withOpacity(.5),
-        elevation: 0,
-        type: BottomNavigationBarType.fixed,
-        onTap: (index) {
-          provider.setIndex(index);
-        },
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.house), label: "Anasayfa"),
-          BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.video), label: "Videolar"),
-          BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.grip), label: "Kategoriler"),
-          BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.headset), label: "Bize Ulaşın"),
-        ],
+      return DecoratedBox(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(color: Colors.black.withOpacity(.3), offset: Offset(0, 0), blurRadius: 3)
+          ]
+        ),
+        child: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          currentIndex: provider.getIndex(),
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.grey.shade400,
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          onTap: (index) {
+            provider.setIndex(index);
+          },
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.house), label: "Anasayfa"),
+            BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.video), label: "Videolar"),
+            BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.grip), label: "Kategoriler"),
+            BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.headset), label: "Bize Ulaşın"),
+          ],
+        ),
       );
     });
   }

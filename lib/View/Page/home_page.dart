@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:erdemli_bel_app/Controller/asset_constants.dart';
 import 'package:erdemli_bel_app/Controller/extensions.dart';
 import 'package:erdemli_bel_app/Model/Dummy/categories.dart';
 import 'package:erdemli_bel_app/Model/Dummy/news.dart';
@@ -101,7 +102,7 @@ class _HomePageState extends State<HomePage>
                 indicatorSize: TabBarIndicatorSize.label,
                 isScrollable: true,
                 indicatorColor: AppColors.accentColor,
-                indicatorWeight: 2,
+                indicatorWeight: 3,
                 tabs: categoryList
                     .map((e) => Center(
                             child: Padding(
@@ -157,44 +158,40 @@ class _HomePageState extends State<HomePage>
       elevation: 2,
       pinned: true,
       iconTheme: IconTheme.of(context).copyWith(size: 30),
-      title: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          IconButton(
-            onPressed: () {
-              zoomDrawerController.toggle.call();
-            },
-            icon: const FaIcon(
-              FontAwesomeIcons.bars,
-              size: 20,
+      title: FittedBox(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              onPressed: () {
+                zoomDrawerController.toggle.call();
+              },
+              icon: const FaIcon(
+                FontAwesomeIcons.bars,
+                size: 20,
+              ),
+              iconSize: 20,
+              padding: EdgeInsets.zero,
+              visualDensity: VisualDensity.compact,
             ),
-            iconSize: 20,
-            padding: EdgeInsets.zero,
-            visualDensity: VisualDensity.compact,
-          ),
-          Expanded(
-            child: RichText(
+            Image.asset(AppAssetContants.logo, height: 50,),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: RichText(
                 text: const TextSpan(children: [
-              TextSpan(
-                  text: 'ERDEMLİ',
-                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 21)),
-              TextSpan(
-                  text: 'BELEDİYESİ',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 21)),
-            ], style: TextStyle(color: Colors.black))),
-          ),
-        ],
+                  TextSpan(
+                      text: 'ERDEMLİ',
+                      style: TextStyle(fontWeight: FontWeight.w800, fontSize: 21)),
+                  TextSpan(
+                      text: ' BELEDİYESİ',
+                      style: TextStyle(fontWeight: FontWeight.w300, fontSize: 21)),
+                ], style: TextStyle(color: Colors.black)),
+              ),
+            ),
+          ],
+        ),
       ),
       actions: [
-        IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                    builder: (context) => const SearchPage(),
-                  ));
-            },
-            icon: const FaIcon(LineIcons.search)),
         IconButton(
             onPressed: () {
               Navigator.push(

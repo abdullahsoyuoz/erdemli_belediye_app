@@ -1,4 +1,5 @@
 import 'package:erdemli_bel_app/Controller/asset_constants.dart';
+import 'package:erdemli_bel_app/View/Page/Getting_started/onboarding_page.dart';
 import 'package:erdemli_bel_app/View/View/main_page_view.dart';
 import 'package:erdemli_bel_app/View/Style/colors.dart';
 import 'package:erdemli_bel_app/View/Widget/slide_animate.dart';
@@ -19,8 +20,8 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), (){
-      // Navigator.push(context, CupertinoPageRoute(builder: (context) => const OnboardingPage(),));
-      Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context) => const MainPageView(),), (route) => false);
+      Navigator.push(context, CupertinoPageRoute(builder: (context) => const OnboardingPage(),));
+      // Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context) => const MainPageView(),), (route) => false);
     });
   }
 

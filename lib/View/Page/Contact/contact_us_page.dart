@@ -44,7 +44,6 @@ class _ContactUsPageState extends State<ContactUsPage>
               shape: const RoundedRectangleBorder(
                   borderRadius:
                       BorderRadius.vertical(top: Radius.circular(40))),
-              color: AppColors.tertiaryColor,
               child: buildBody(),
             ),
           ),
@@ -97,6 +96,7 @@ class _ContactUsPageState extends State<ContactUsPage>
                   child: Card(
                     color: AppColors.primaryColor,
                     elevation: 5,
+                    margin: EdgeInsets.zero,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     child: Padding(

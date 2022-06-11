@@ -30,31 +30,35 @@ class _CategoryDetailViewState extends State<CategoryDetailView> {
               centerTitle: true,
               collapseMode: CollapseMode.parallax,
               title: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Hero(
-                      tag: widget.data.hashCode + widget.data.title.hashCode,
-                      child: Text(
-                        widget.data.title,
-                        style: GoogleFonts.openSans(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 1,
-                        ),
-                        overflow: TextOverflow.fade,
-                        maxLines: 2,
-                        softWrap: true,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () => Navigator.pop(context),
-                      icon: const Icon(
+                    GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: const Icon(
                         FontAwesomeIcons.chevronLeft,
                         color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Text(
+                          widget.data.title,
+                          textAlign: TextAlign.start,
+                          style: GoogleFonts.openSans(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 1,
+                          ),
+                          overflow: TextOverflow.fade,
+                          maxLines: 2,
+                          softWrap: true,
+                        ),
                       ),
                     ),
                   ],
