@@ -360,6 +360,7 @@ class _ComplaintPageState extends State<ComplaintPage> {
             child: MaterialButton(
               onPressed: () {
                 FocusScope.of(context).unfocus();
+                Navigator.pop(context);
               },
               color: focusColor,
               splashColor: AppColors.primaryColor,

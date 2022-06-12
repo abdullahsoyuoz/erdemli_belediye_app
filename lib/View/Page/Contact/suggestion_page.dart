@@ -321,6 +321,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
             child: MaterialButton(
               onPressed: () {
                 FocusScope.of(context).unfocus();
+                Navigator.pop(context);
               },
               color: AppColors.orange,
               splashColor: AppColors.primaryColor,
