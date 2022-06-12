@@ -315,6 +315,44 @@ class _ComplaintPageState extends State<ComplaintPage> {
           ),
         ),
         Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: SizedBox(
+            width: context.width,
+            height: 100,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                  color: unFocusColor.withOpacity(.1),
+                  border: Border.all(
+                    width: 2,
+                    color: unFocusColor,
+                  ),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child: Text(
+                          "Fotoğraf ekleyebilirsiniz.",
+                          style: GoogleFonts.montserrat(fontSize: 17),
+                        ),
+                      ),
+                    ),
+                    MaterialButton(
+                      child: const FaIcon(FontAwesomeIcons.camera),
+                      color: focusColor,
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        Padding(
           padding: const EdgeInsets.only(top: 20),
           child: SizedBox(
             width: context.width,

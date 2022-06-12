@@ -3,8 +3,6 @@ import 'dart:math';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:erdemli_bel_app/Controller/extensions.dart';
 import 'package:erdemli_bel_app/Model/Dummy/news.dart';
-import 'package:erdemli_bel_app/View/Widget/slider_news_item.dart';
-import 'package:erdemli_bel_app/View/Widget/sliver_header.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -117,7 +115,7 @@ class _NewsDetailState extends State<NewsDetail>
                             ),
                             child: Text(
                               widget.data.category.title,
-                              style: const TextStyle(
+                              style: GoogleFonts.montserrat(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w600,
                                   color: Colors.white),
@@ -140,7 +138,7 @@ class _NewsDetailState extends State<NewsDetail>
                                     padding: const EdgeInsets.only(left: 5.0),
                                     child: Text(
                                       widget.data.dateTime.dateFormat,
-                                      style: TextStyle(
+                                      style: GoogleFonts.montserrat(
                                           fontWeight: FontWeight.w400,
                                           color: Colors.black.withOpacity(0.5)),
                                     ),
@@ -158,7 +156,7 @@ class _NewsDetailState extends State<NewsDetail>
                                     padding: const EdgeInsets.only(left: 5.0),
                                     child: Text(
                                       Random().nextInt(555).toString(),
-                                      style: TextStyle(
+                                      style: GoogleFonts.montserrat(
                                           fontWeight: FontWeight.w400,
                                           color: Colors.black.withOpacity(0.5)),
                                     ),

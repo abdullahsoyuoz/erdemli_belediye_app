@@ -5,6 +5,7 @@ import 'package:erdemli_bel_app/Model/Dummy/belediye.dart';
 import 'package:erdemli_bel_app/View/Style/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -73,14 +74,14 @@ class _ContactUsPageState extends State<ContactUsPage>
       child: Column(
         children: [
           RichText(
-            text: const TextSpan(children: [
+            text: TextSpan(children: [
               TextSpan(
                   text: 'ERDEMLİ',
-                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 21)),
+                  style: GoogleFonts.montserrat(fontWeight: FontWeight.w800, fontSize: 21)),
               TextSpan(
                   text: ' BELEDİYESİ',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 21)),
-            ], style: TextStyle(color: Colors.black)),
+                  style: GoogleFonts.montserrat(fontWeight: FontWeight.w300, fontSize: 21)),
+            ], style: GoogleFonts.montserrat(color: Colors.black)),
           ),
           buildInfoList(),
           ListView.builder(
@@ -120,7 +121,7 @@ class _ContactUsPageState extends State<ContactUsPage>
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Text(
                                     data.title,
-                                    style: const TextStyle(
+                                    style:  GoogleFonts.montserrat(
                                         fontWeight: FontWeight.w600,
                                         fontSize: 17,
                                         color: Colors.white),
@@ -170,7 +171,7 @@ class _ContactUsPageState extends State<ContactUsPage>
                         }
                       },
                       child: Padding(
-                        padding: const EdgeInsets.only(right: 20.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: CircleAvatar(
                           radius: 30,
                           backgroundColor: e.color,
@@ -203,6 +204,7 @@ class _ContactUsPageState extends State<ContactUsPage>
             content: belediye.phone,
             icon: FontAwesomeIcons.phone,
             callback: () async {
+              // TODO: launcURL
               final url = 'tel:${belediye.phone}';
               if (await canLaunchUrlString(url)) {
                 canLaunchUrlString('tel:${belediye.phone}');

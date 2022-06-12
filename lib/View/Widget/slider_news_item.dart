@@ -2,6 +2,7 @@ import 'package:erdemli_bel_app/Controller/extensions.dart';
 import 'package:erdemli_bel_app/Model/Dummy/news.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SliderNewsItem extends StatelessWidget {
   final News data;
@@ -39,7 +40,7 @@ class SliderNewsItem extends StatelessWidget {
                       ),
                       child: Text(
                         data.category.title,
-                        style: const TextStyle(
+                        style: GoogleFonts.montserrat(
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
                           color: Colors.white
@@ -65,7 +66,7 @@ class SliderNewsItem extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(data.title,
-                            style: const TextStyle(
+                            style: GoogleFonts.montserrat(
                                 color: Colors.white, fontSize: 17),
                             maxLines: 2),
                         Padding(
@@ -82,7 +83,7 @@ class SliderNewsItem extends StatelessWidget {
                                 padding: const EdgeInsets.only(left: 3.0),
                                 child: Text(
                                   data.dateTime.dateFormat,
-                                  style: const TextStyle(
+                                  style: GoogleFonts.montserrat(
                                       color: Colors.white, fontSize: 15, fontWeight: FontWeight.w300),
                                 ),
                               ),

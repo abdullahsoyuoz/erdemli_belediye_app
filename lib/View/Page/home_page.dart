@@ -173,18 +173,23 @@ class _HomePageState extends State<HomePage>
               padding: EdgeInsets.zero,
               visualDensity: VisualDensity.compact,
             ),
-            Image.asset(AppAssetContants.logo, height: 50,),
+            Image.asset(
+              AppAssetContants.logo,
+              height: 50,
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: RichText(
-                text: const TextSpan(children: [
+                text: TextSpan(children: [
                   TextSpan(
                       text: 'ERDEMLİ',
-                      style: TextStyle(fontWeight: FontWeight.w800, fontSize: 21)),
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w800, fontSize: 21)),
                   TextSpan(
                       text: ' BELEDİYESİ',
-                      style: TextStyle(fontWeight: FontWeight.w300, fontSize: 21)),
-                ], style: TextStyle(color: Colors.black)),
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w300, fontSize: 21)),
+                ], style: GoogleFonts.montserrat(color: Colors.black)),
               ),
             ),
           ],

@@ -34,9 +34,9 @@ class _CategoriesPageState extends State<CategoriesPage>
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'KATEGORİLER',
-          style: TextStyle(fontWeight: FontWeight.w800, fontSize: 21),
+          style: GoogleFonts.montserrat(fontWeight: FontWeight.w800, fontSize: 21),
         ),
         centerTitle: false,
       ),
@@ -82,7 +82,7 @@ class _CategoryItemState extends State<CategoryItem> {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: Container(
+              child: SizedBox(
                 width: context.width,
                 child: DecoratedBox(
                   decoration:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class VideosPage extends StatefulWidget {
   const VideosPage({ Key key }) : super(key: key);
@@ -24,7 +25,7 @@ class _VideosPageState extends State<VideosPage> with SingleTickerProviderStateM
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('VİDEOLAR', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 21),),
+        title: Text('VİDEOLAR', style: GoogleFonts.montserrat(fontWeight: FontWeight.w800, fontSize: 21),),
         centerTitle: false,
       ),
       body: const SizedBox.expand(

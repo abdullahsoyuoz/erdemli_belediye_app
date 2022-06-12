@@ -4,6 +4,7 @@ import 'package:erdemli_bel_app/View/Page/news_detail_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NewsWidget extends StatelessWidget {
   final News data;
@@ -37,7 +38,7 @@ class NewsWidget extends StatelessWidget {
                           children: [
                             Text(
                               data.title,
-                              style: const TextStyle(
+                              style: GoogleFonts.montserrat(
                                   color: Colors.black,
                                   fontSize: 17,
                                   height: 1.5,
@@ -77,7 +78,7 @@ class NewsWidget extends StatelessWidget {
                               ),
                               child: Text(
                                 data.category.title,
-                                style: const TextStyle(
+                                style: GoogleFonts.montserrat(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w600,
                                     color: Colors.white),
@@ -108,7 +109,7 @@ class NewsWidget extends StatelessWidget {
                       ),
                       Text(
                         data.dateTime.dateFormat,
-                        style: TextStyle(fontWeight: FontWeight.w400, color: Colors.black.withOpacity(0.5)),
+                        style: GoogleFonts.montserrat(fontWeight: FontWeight.w400, color: Colors.black.withOpacity(0.5)),
                       ),
                     ],
                   ),
