@@ -1,6 +1,8 @@
+import 'package:erdemli_bel_app/Controller/main_page_view_provider.dart';
 import 'package:erdemli_bel_app/Model/Dummy/categories.dart';
 import 'package:erdemli_bel_app/View/Widget/category_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CategoriesPage extends StatefulWidget {
@@ -29,9 +31,25 @@ class _CategoriesPageState extends State<CategoriesPage>
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text(
-          'KATEGORİLER',
-          style: GoogleFonts.montserrat(fontWeight: FontWeight.w800, fontSize: 21),
+        title: Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                zoomDrawerController.toggle.call();
+              },
+              icon: const FaIcon(
+                FontAwesomeIcons.bars,
+                size: 20,
+              ),
+              iconSize: 20,
+              padding: EdgeInsets.zero,
+              visualDensity: VisualDensity.compact,
+            ),
+            Text(
+              'KATEGORİLER',
+              style: GoogleFonts.montserrat(fontWeight: FontWeight.w800, fontSize: 21),
+            ),
+          ],
         ),
         centerTitle: false,
       ),

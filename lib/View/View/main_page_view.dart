@@ -1,11 +1,14 @@
 import 'package:animations/animations.dart';
+import 'package:erdemli_bel_app/Controller/extensions.dart';
 import 'package:erdemli_bel_app/Controller/main_page_view_provider.dart';
 import 'package:erdemli_bel_app/View/Page/Category/categories_page.dart';
 import 'package:erdemli_bel_app/View/Page/Contact/contact_us_page.dart';
 import 'package:erdemli_bel_app/View/Page/home_page.dart';
 import 'package:erdemli_bel_app/View/Page/videos_page.dart';
+import 'package:erdemli_bel_app/View/View/drawer_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +22,6 @@ class MainPageView extends StatefulWidget {
 class _MainPageViewState extends State<MainPageView>
     with SingleTickerProviderStateMixin {
   final GlobalKey _scaffoldKey = GlobalKey<ScaffoldState>();
-  ZoomDrawerController zoomDrawerController;
   
   List<Widget> mainPageList = const [
     HomePage(),
@@ -30,7 +32,6 @@ class _MainPageViewState extends State<MainPageView>
 
   @override
   void initState() {
-    zoomDrawerController = ZoomDrawerController();
     super.initState();
   }
 
@@ -45,18 +46,30 @@ class _MainPageViewState extends State<MainPageView>
       return Scaffold(
         key: _scaffoldKey,
         bottomNavigationBar: buildBottomNavBar(),
-        body: SizedBox.expand(
-          child: PageTransitionSwitcher(
-            duration: const Duration(milliseconds: 300),
-            child: mainPageList[provider.getIndex()],
-            transitionBuilder: (child, animation, secondaryAnimation) {
-              return SharedAxisTransition(
-                animation: animation,
-                secondaryAnimation: secondaryAnimation,
-                transitionType: SharedAxisTransitionType.scaled,
-                child: child,
-              );
-            },
+        body: ZoomDrawer(
+          controller: zoomDrawerController,
+          style: DrawerStyle.defaultStyle,
+          angle: 0,
+          mainScreenScale: 0,
+          mainScreenTapClose: true,
+          moveMenuScreen: true,
+          shrinkMainScreen: false,
+          menuScreenWidth: context.width * 0.75,
+          slideWidth: context.width * 0.75,
+          menuScreen: const DrawerView(),
+          mainScreen: SizedBox.expand(
+            child: PageTransitionSwitcher(
+              duration: const Duration(milliseconds: 300),
+              child: mainPageList[provider.getIndex()],
+              transitionBuilder: (child, animation, secondaryAnimation) {
+                return SharedAxisTransition(
+                  animation: animation,
+                  secondaryAnimation: secondaryAnimation,
+                  transitionType: SharedAxisTransitionType.scaled,
+                  child: child,
+                );
+              },
+            ),
           ),
         ),
       );

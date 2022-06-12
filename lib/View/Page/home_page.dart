@@ -47,28 +47,16 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey,
-        body: ZoomDrawer(
-          controller: zoomDrawerController,
-          style: DrawerStyle.defaultStyle,
-          angle: 0,
-          mainScreenScale: 0,
-          mainScreenTapClose: true,
-          moveMenuScreen: true,
-          shrinkMainScreen: false,
-          menuScreenWidth: context.width * 0.75,
-          slideWidth: context.width * 0.75,
-          menuScreen: const DrawerView(),
-          mainScreen: SizedBox.expand(
-            child: CustomScrollView(
-              physics: const AlwaysScrollableScrollPhysics(
-                  parent: BouncingScrollPhysics()),
-              slivers: [
-                buildAppBar(context),
-                buildSlider(context),
-                buildCategoryTab(context),
-                buildBody()
-              ],
-            ),
+        body: SizedBox.expand(
+          child: CustomScrollView(
+            physics: const AlwaysScrollableScrollPhysics(
+                parent: BouncingScrollPhysics()),
+            slivers: [
+              buildAppBar(context),
+              buildSlider(context),
+              buildCategoryTab(context),
+              buildBody()
+            ],
           ),
         ));
   }
