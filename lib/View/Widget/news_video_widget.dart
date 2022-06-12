@@ -5,6 +5,7 @@ import 'package:erdemli_bel_app/View/Page/news_detail_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class NewsVideoWidget extends StatefulWidget {
@@ -15,8 +16,7 @@ class NewsVideoWidget extends StatefulWidget {
   _NewsVideoWidgetState createState() => _NewsVideoWidgetState();
 }
 
-class _NewsVideoWidgetState extends State<NewsVideoWidget>
-    with SingleTickerProviderStateMixin {
+class _NewsVideoWidgetState extends State<NewsVideoWidget> {
   final Key _newsKey = UniqueKey();
   YoutubePlayerController youtubePlayerController;
 
@@ -128,6 +128,98 @@ class _NewsVideoWidgetState extends State<NewsVideoWidget>
                             style: GoogleFonts.montserrat(
                                 fontWeight: FontWeight.w400,
                                 color: Colors.black.withOpacity(0.5)),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class NewsVideoShimmerWidget extends StatelessWidget {
+  final News data;
+  const NewsVideoShimmerWidget({Key key, this.data}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Material(
+        elevation: 2,
+        color: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: Shimmer.fromColors(
+          baseColor: Colors.white,
+          highlightColor: Colors.grey.shade300,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: AspectRatio(
+                      aspectRatio: 16 / 9,
+                      child: Container(
+                        width: context.width,
+                        height: context.width,
+                        color: Colors.black,
+                      )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: context.width,
+                        height: 20,
+                        color: Colors.black,
+                      ),
+                      Container(
+                        width: context.width * 0.7,
+                        height: 20,
+                        margin: const EdgeInsets.only(top: 10),
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 70,
+                            height: 20,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(right: 3.0),
+                            child: FaIcon(
+                              FontAwesomeIcons.clock,
+                              size: 14,
+                            ),
+                          ),
+                          Container(
+                            width: 70,
+                            height: 20,
+                            color: Colors.black,
                           ),
                         ],
                       ),

@@ -87,6 +87,7 @@ class _OnboardingPageState extends State<OnboardingPage>
                             children: [
                               Text(
                                 e.title,
+                                textAlign: TextAlign.center,
                                 style: GoogleFonts.montserrat(color: Colors.black, fontSize: 21),
                               ),
                               Padding(

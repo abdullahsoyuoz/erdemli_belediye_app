@@ -1,5 +1,6 @@
 import 'package:erdemli_bel_app/Controller/extensions.dart';
 import 'package:erdemli_bel_app/Model/Dummy/news.dart';
+import 'package:erdemli_bel_app/View/Widget/image_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,6 +24,7 @@ class SliderNewsItem extends StatelessWidget {
                 data.imageUrl,
                 width: context.width,
                 height: 200,
+                loadingBuilder: loadingIndicator,
                 fit: BoxFit.cover,
               ),
               Align(

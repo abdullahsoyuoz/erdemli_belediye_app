@@ -5,6 +5,7 @@ import 'package:erdemli_bel_app/Model/Dummy/categories.dart';
 import 'package:erdemli_bel_app/Model/Dummy/news.dart';
 import 'package:erdemli_bel_app/View/Page/notify_page.dart';
 import 'package:erdemli_bel_app/View/Style/colors.dart';
+import 'package:erdemli_bel_app/View/View/drawer_view.dart';
 import 'package:erdemli_bel_app/View/Widget/news_widget.dart';
 import 'package:erdemli_bel_app/View/Widget/slider_news_item.dart';
 import 'package:erdemli_bel_app/View/Widget/sliver_header.dart';
@@ -55,11 +56,9 @@ class _HomePageState extends State<HomePage>
           mainScreenTapClose: true,
           moveMenuScreen: true,
           shrinkMainScreen: false,
-          menuScreen: const SizedBox.expand(
-            child: Center(
-              child: Text('Drawer'),
-            ),
-          ),
+          menuScreenWidth: context.width * 0.75,
+          slideWidth: context.width * 0.75,
+          menuScreen: const DrawerView(),
           mainScreen: SizedBox.expand(
             child: CustomScrollView(
               physics: const AlwaysScrollableScrollPhysics(

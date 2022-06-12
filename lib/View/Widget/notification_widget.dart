@@ -1,8 +1,6 @@
 import 'package:erdemli_bel_app/Controller/extensions.dart';
 import 'package:erdemli_bel_app/Model/Dummy/news.dart';
 import 'package:flutter/material.dart';
-import 'package:erdemli_bel_app/View/Page/news_detail_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 

@@ -147,17 +147,6 @@ class _ContactUsPageState extends State<ContactUsPage>
             child: SizedBox(
               height: 50,
               width: context.width,
-              // child: ListView.builder(
-              //   shrinkWrap: true,
-              //   physics: const AlwaysScrollableScrollPhysics(
-              //       parent: BouncingScrollPhysics()),
-              //   scrollDirection: Axis.horizontal,
-              //   itemCount: contactSocialMediaList.length,
-              //   itemBuilder: (c, index) {
-              //     final data = contactSocialMediaList[index];
-                  
-              //   },
-              // ),
               child: FittedBox(
                 fit: BoxFit.fitHeight,
                 child: Row(
