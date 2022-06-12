@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage>
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: CarouselSlider(
           items: newsList
-              .map((e) => SliderNewsShimmerItem(
+              .map((e) => SliderNewsItem(
                     data: e,
                   ))
               .toList(),
