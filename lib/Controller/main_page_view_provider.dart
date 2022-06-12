@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/config.dart';
 
 class MainPageIndexer extends ChangeNotifier {
   int _currentIndex = 0;
@@ -9,3 +10,5 @@ class MainPageIndexer extends ChangeNotifier {
 
   int getIndex() => _currentIndex;
 }
+
+final ZoomDrawerController zoomDrawerController = ZoomDrawerController();

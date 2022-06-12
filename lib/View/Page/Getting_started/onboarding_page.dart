@@ -1,4 +1,5 @@
 import 'package:erdemli_bel_app/Controller/extensions.dart';
+import 'package:erdemli_bel_app/View/Style/colors.dart';
 import 'package:erdemli_bel_app/View/View/main_page_view.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/cupertino.dart';
@@ -50,17 +51,18 @@ class _OnboardingPageState extends State<OnboardingPage>
             showBackButton: false,
             back: const Icon(Icons.arrow_back),
             next: Text('İlerle',
-                style: GoogleFonts.montserrat(fontWeight: FontWeight.w600)),
-            done: Text('Tamam',
-                style: GoogleFonts.montserrat(fontWeight: FontWeight.w600)),
+                style: GoogleFonts.montserrat(fontWeight: FontWeight.w400, fontSize: 17, color: AppColors.blue)),
+            done: Text('Başlayalım',
+                style: GoogleFonts.montserrat(fontWeight: FontWeight.w400, fontSize: 17, color: AppColors.blue)),
             curve: Curves.fastLinearToSlowEaseIn,
-            controlsMargin: const EdgeInsets.all(16),
-            dotsDecorator: const DotsDecorator(
-              size: Size(10.0, 10.0),
-              color: Color(0xFFBDBDBD),
-              activeSize: Size(22.0, 10.0),
-              activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(25.0)),
+            controlsMargin: const EdgeInsets.only(bottom: 20),
+            dotsDecorator: DotsDecorator(
+              size: const Size(10, 10),
+              color: AppColors.tertiaryColor,
+              activeColor: AppColors.blue,
+              activeSize: const Size(50, 10),
+              activeShape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
             ),
             pages: onboardList

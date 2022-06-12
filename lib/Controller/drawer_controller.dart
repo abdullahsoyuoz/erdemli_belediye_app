@@ -26,26 +26,43 @@ Future<void> drawerRouteHelper(BuildContext context, int index) async {
       Provider.of<MainPageIndexer>(context, listen: false)
           .setIndex(0)
           .whenComplete(() {
-        Navigator.pushAndRemoveUntil(
-            context,
-            CupertinoPageRoute(builder: (context) => const MainPageView()),
-            (route) => false);
+        zoomDrawerController.close.call();
+        // Navigator.pushAndRemoveUntil(
+        //     context,
+        //     CupertinoPageRoute(builder: (context) => const MainPageView()),
+        //     (route) => false);
       });
       break;
     case 1:
       Provider.of<MainPageIndexer>(context, listen: false)
           .setIndex(2)
           .whenComplete(() {
-        Navigator.pushAndRemoveUntil(context,
-            CupertinoPageRoute(builder: (context) => const MainPageView()), (route) => false);
+        zoomDrawerController.close.call();
+        // Navigator.pushAndRemoveUntil(context,
+        //     CupertinoPageRoute(builder: (context) => const MainPageView()), (route) => false);
       });
       break;
     case 2:
+      zoomDrawerController.close.call();
       Navigator.push(
           context,
           CupertinoPageRoute(
             builder: (context) => const HistoryPage(),
           ));
+      break;
+    case 3:
+      Provider.of<MainPageIndexer>(context, listen: false)
+          .setIndex(3)
+          .whenComplete(() {
+        zoomDrawerController.close.call();
+        // Navigator.pushAndRemoveUntil(
+        //     context,
+        //     CupertinoPageRoute(builder: (context) => const MainPageView()),
+        //     (route) => false);
+      });
+      break;
+    case 4:
+      // TODO: call phone
       break;
     default:
   }

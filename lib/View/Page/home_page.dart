@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:erdemli_bel_app/Controller/asset_constants.dart';
 import 'package:erdemli_bel_app/Controller/extensions.dart';
+import 'package:erdemli_bel_app/Controller/main_page_view_provider.dart';
 import 'package:erdemli_bel_app/Model/Dummy/categories.dart';
 import 'package:erdemli_bel_app/Model/Dummy/news.dart';
 import 'package:erdemli_bel_app/View/Page/notify_page.dart';
@@ -29,12 +30,10 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   final GlobalKey _scaffoldKey = GlobalKey<ScaffoldState>();
   TabController tabController;
-  ZoomDrawerController zoomDrawerController;
 
   @override
   void initState() {
     tabController = TabController(length: categoryList.length, vsync: this);
-    zoomDrawerController = ZoomDrawerController();
     super.initState();
   }
 
@@ -133,7 +132,7 @@ class _HomePageState extends State<HomePage>
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: CarouselSlider(
           items: newsList
-              .map((e) => SliderNewsItem(
+              .map((e) => SliderNewsShimmerItem(
                     data: e,
                   ))
               .toList(),

@@ -5,6 +5,7 @@ import 'package:erdemli_bel_app/View/Page/Contact/contact_us_page.dart';
 import 'package:erdemli_bel_app/View/Page/home_page.dart';
 import 'package:erdemli_bel_app/View/Page/videos_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/config.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +19,8 @@ class MainPageView extends StatefulWidget {
 class _MainPageViewState extends State<MainPageView>
     with SingleTickerProviderStateMixin {
   final GlobalKey _scaffoldKey = GlobalKey<ScaffoldState>();
+  ZoomDrawerController zoomDrawerController;
+  
   List<Widget> mainPageList = const [
     HomePage(),
     VideosPage(),
@@ -27,6 +30,7 @@ class _MainPageViewState extends State<MainPageView>
 
   @override
   void initState() {
+    zoomDrawerController = ZoomDrawerController();
     super.initState();
   }
 
