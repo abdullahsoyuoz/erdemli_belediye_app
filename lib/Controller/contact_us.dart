@@ -34,7 +34,7 @@ class SocialMedia {
 List<SocialMedia> contactSocialMediaList = [
   SocialMedia(icon: FontAwesomeIcons.twitter, color: const Color(0xff1da1f2), url: "https://twitter.com/erdemlibld"),
   SocialMedia(icon: FontAwesomeIcons.facebook, color: const Color(0xff1877f2), url: "https://www.facebook.com/erdemlibld/"),
-  SocialMedia(icon: FontAwesomeIcons.pinterest, color: const Color(0xffbd081c), url: "https://twitter.com/erdemlibld"),
+  SocialMedia(icon: FontAwesomeIcons.instagram, color: const Color(0xffc32aa3), url: "https://www.instagram.com/erdemlibld/"),
   SocialMedia(icon: FontAwesomeIcons.youtube, color: const Color(0xffff0000), url: "https://www.youtube.com/user/erdemlibelediyesi33"),
 ];
 

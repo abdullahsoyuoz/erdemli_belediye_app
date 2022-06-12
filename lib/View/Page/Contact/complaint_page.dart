@@ -31,10 +31,10 @@ class _ComplaintPageState extends State<ComplaintPage> {
   final FocusNode _subjectFocus = FocusNode();
   final FocusNode _descriptionFocus = FocusNode();
 
-  Color focusColor = AppColors.orange;
+  Color focusColor = AppColors.green;
   Color unFocusColor = AppColors.grey.withOpacity(.1);
 
-   @override
+  @override
   void initState() {
     _nameFocus.addListener(() {
       setState(() {});
@@ -63,7 +63,6 @@ class _ComplaintPageState extends State<ComplaintPage> {
     _descriptionFocus.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -324,7 +323,7 @@ class _ComplaintPageState extends State<ComplaintPage> {
               onPressed: () {
                 FocusScope.of(context).unfocus();
               },
-              color: AppColors.orange,
+              color: focusColor,
               splashColor: AppColors.primaryColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 extension ContextExtension on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
@@ -12,5 +13,6 @@ extension GetSize on BuildContext {
 }
 
 extension DateExtension on DateTime {
-  String get dateFormat => "$day.$month.$year";
+  // String get dateFormat => "$day.$month.$year ${DateFormat.Hm(this).toString()}";
+  String get dateFormat => DateFormat("dd.MM.yyyy · HH:mm").format(this);
 }

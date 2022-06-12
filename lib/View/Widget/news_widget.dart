@@ -108,7 +108,7 @@ class NewsWidget extends StatelessWidget {
                       ),
                       Text(
                         data.dateTime.dateFormat,
-                        style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black.withOpacity(0.5)),
+                        style: TextStyle(fontWeight: FontWeight.w400, color: Colors.black.withOpacity(0.5)),
                       ),
                     ],
                   ),

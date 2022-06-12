@@ -1,7 +1,9 @@
 import 'dart:math';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:erdemli_bel_app/Controller/extensions.dart';
 import 'package:erdemli_bel_app/Model/Dummy/news.dart';
+import 'package:erdemli_bel_app/View/Widget/slider_news_item.dart';
 import 'package:erdemli_bel_app/View/Widget/sliver_header.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -45,30 +47,53 @@ class _NewsDetailState extends State<NewsDetail>
         body: SafeArea(
           child: CustomScrollView(
             shrinkWrap: true,
-            physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+            physics: const AlwaysScrollableScrollPhysics(
+                parent: BouncingScrollPhysics()),
             slivers: [
               SliverAppBar(
                 toolbarHeight: 70,
                 expandedHeight: 200,
                 automaticallyImplyLeading: false,
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                pinned: true,
                 title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
                       onTap: () => Navigator.pop(context),
                       child: const CircleAvatar(
-                        child:
-                            Center(child: Icon(FontAwesomeIcons.chevronLeft, color: Colors.white,)),
+                        child: Center(
+                            child: Icon(
+                          FontAwesomeIcons.chevronLeft,
+                          color: Colors.white,
+                          size: 20,
+                        )),
                         backgroundColor: Colors.black,
                         radius: 20,
                       ),
-                    )
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: const CircleAvatar(
+                        child: Center(
+                            child: Icon(
+                          FontAwesomeIcons.shareNodes,
+                          color: Colors.white,
+                          size: 20,
+                        )),
+                        backgroundColor: Colors.black,
+                        radius: 20,
+                      ),
+                    ),
                   ],
                 ),
                 flexibleSpace: FlexibleSpaceBar(
-                  background: widget.data.containVideo ? YoutubePlayer(controller: youtubeController) : Image.network(
-                    widget.data.imageUrl,
-                    fit: BoxFit.cover,
-                  ),
+                  background: widget.data.containVideo
+                      ? YoutubePlayer(controller: youtubeController)
+                      : Image.network(
+                          widget.data.imageUrl,
+                          fit: BoxFit.cover,
+                        ),
                 ),
               ),
               MultiSliver(pushPinnedChildren: false, children: [
@@ -107,7 +132,7 @@ class _NewsDetailState extends State<NewsDetail>
                               Row(
                                 children: [
                                   FaIcon(
-                                    FontAwesomeIcons.calendarDay,
+                                    FontAwesomeIcons.clock,
                                     color: Colors.black.withOpacity(.5),
                                     size: 15,
                                   ),
@@ -116,9 +141,8 @@ class _NewsDetailState extends State<NewsDetail>
                                     child: Text(
                                       widget.data.dateTime.dateFormat,
                                       style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w700,
-                                          color: Colors.black.withOpacity(.5)),
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black.withOpacity(0.5)),
                                     ),
                                   )
                                 ],
@@ -135,9 +159,8 @@ class _NewsDetailState extends State<NewsDetail>
                                     child: Text(
                                       Random().nextInt(555).toString(),
                                       style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w700,
-                                          color: Colors.black.withOpacity(.5)),
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black.withOpacity(0.5)),
                                     ),
                                   )
                                 ],
@@ -149,33 +172,50 @@ class _NewsDetailState extends State<NewsDetail>
                     ),
                   ),
                 ),
-                const SliverPadding(
-                    padding: EdgeInsets.only(top: 10),
-                    sliver: SliverToBoxAdapter()),
-                SliverPersistentHeader(
-                  key: LabeledGlobalKey("newsTitle"),
-                  pinned: true,
-                  floating: true,
-                  delegate: CustomSliverPersistentHeader(
-                    context,
-                    maxExtentValue: 100,
-                    minExtentValue: 100,
-                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        boxShadow: [BoxShadow(color: Colors.black.withOpacity(.2), offset: const Offset(0, 2), blurRadius: 1)]
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text(
-                          widget.data.title,
-                          maxLines: 4,
-                          overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.montserrat(
-                              fontSize: 18, fontWeight: FontWeight.w600),
-                        ),
-                      ),
+                // const SliverPadding(
+                //     padding: EdgeInsets.only(top: 10),
+                //     sliver: SliverToBoxAdapter()),
+                // SliverPersistentHeader(
+                //   key: LabeledGlobalKey("newsTitle"),
+                //   pinned: true,
+                //   floating: true,
+                //   delegate: CustomSliverPersistentHeader(
+                //     context,
+                //     maxExtentValue: 100,
+                //     minExtentValue: 100,
+                //     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                //     child: DecoratedBox(
+                //       decoration: BoxDecoration(
+                //           color: Theme.of(context).scaffoldBackgroundColor,
+                //           boxShadow: [
+                //             BoxShadow(
+                //                 color: Colors.black.withOpacity(.2),
+                //                 offset: const Offset(0, 2),
+                //                 blurRadius: 1)
+                //           ]),
+                //       child: Padding(
+                //         padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                //         child: Text(
+                //           widget.data.title,
+                //           maxLines: 4,
+                //           overflow: TextOverflow.ellipsis,
+                //           style: GoogleFonts.montserrat(
+                //               fontSize: 18, fontWeight: FontWeight.w600),
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                SliverPadding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 20),
+                  sliver: SliverToBoxAdapter(
+                    child: Text(
+                      widget.data.title,
+                      maxLines: 4,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.montserrat(
+                          fontSize: 18, fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
@@ -188,6 +228,33 @@ class _NewsDetailState extends State<NewsDetail>
                     ),
                   ),
                 ),
+                SliverPadding(
+                    padding: const EdgeInsets.only(top: 20.0, bottom: 50),
+                    sliver: SliverToBoxAdapter(
+                        child: SizedBox(
+                      width: context.width,
+                      height: context.width * 3 / 4,
+                      child: CarouselSlider(
+                        items: widget.data.photosUrl
+                            .map((e) => Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.network(
+                                      e,
+                                      fit: BoxFit.cover,
+                                    ),
+                              ),
+                            ))
+                            .toList(),
+                        options: CarouselOptions(
+                          viewportFraction: 0.9,
+                          enlargeStrategy: CenterPageEnlargeStrategy.height,
+                          height: context.width * 3 / 4,
+                          autoPlay: false,
+                        ),
+                      ),
+                    ))),
               ]),
             ],
           ),

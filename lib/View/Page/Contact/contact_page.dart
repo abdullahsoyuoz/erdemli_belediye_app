@@ -31,8 +31,8 @@ class _ContactPageState extends State<ContactPage> {
   FocusNode _subjectFocus = FocusNode();
   FocusNode _descriptionFocus = FocusNode();
 
-  Color focusColor = AppColors.orange;
-  Color unFocusColor = AppColors.grey.withOpacity(.1);
+  Color focusColor = AppColors.blue;
+  Color unFocusColor = Colors.grey.shade300;
 
   @override
   void initState() {
@@ -96,13 +96,15 @@ class _ContactPageState extends State<ContactPage> {
                         children: [
                           const FaIcon(
                             FontAwesomeIcons.headset,
+                            color: Colors.white,
                           ),
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.only(left: 15.0),
                               child: Text(
                                 "Bizimle bu form aracılığıyla iletişime geçebilirsiniz. ",
-                                style: GoogleFonts.montserrat(fontSize: 17),
+                                style: GoogleFonts.montserrat(
+                                    fontSize: 17, color: Colors.white),
                               ),
                             ),
                           ),
@@ -323,13 +325,14 @@ class _ContactPageState extends State<ContactPage> {
               onPressed: () {
                 FocusScope.of(context).unfocus();
               },
-              color: AppColors.orange,
+              color: focusColor,
               splashColor: AppColors.primaryColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               child: Text(
                 'Gönder',
-                style: GoogleFonts.montserrat(fontSize: 17),
+                style:
+                    GoogleFonts.montserrat(fontSize: 17, color: Colors.white),
               ),
             ),
           ),
