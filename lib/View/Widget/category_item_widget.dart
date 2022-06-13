@@ -35,8 +35,13 @@ class _CategoryItemState extends State<CategoryItem> {
               child: SizedBox(
                 width: context.width,
                 child: DecoratedBox(
-                  decoration:
-                      BoxDecoration(color: Colors.black.withOpacity(.5)),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.black.withOpacity(.75), Colors.transparent],
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                    ),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 5.0),
                     child: Text(
