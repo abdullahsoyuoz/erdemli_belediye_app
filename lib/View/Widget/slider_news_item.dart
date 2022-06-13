@@ -148,7 +148,7 @@ class SliderNewsShimmerItem extends StatelessWidget {
               ),
               Align(
                 alignment: Alignment.bottomCenter,
-                child: Container(
+                child: SizedBox(
                   width: context.width,
                   height: 120,
                   child: Shimmer.fromColors(

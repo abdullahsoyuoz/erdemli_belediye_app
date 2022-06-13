@@ -139,9 +139,14 @@ class _ContactPageState extends State<ContactPage> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                FaIcon(
-                  FontAwesomeIcons.solidUser,
-                  color: _nameFocus.hasFocus ? focusColor : unFocusColor,
+                SizedBox(
+                  width: 20,
+                  child: Center(
+                    child: FaIcon(
+                      FontAwesomeIcons.solidUser,
+                      color: _nameFocus.hasFocus ? focusColor : unFocusColor,
+                    ),
+                  ),
                 ),
                 Expanded(
                   child: Padding(
@@ -176,9 +181,14 @@ class _ContactPageState extends State<ContactPage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  FaIcon(FontAwesomeIcons.solidUser,
-                      color:
-                          _surnameFocus.hasFocus ? focusColor : unFocusColor),
+                  SizedBox(
+                    width: 20,
+                    child: Center(
+                      child: FaIcon(FontAwesomeIcons.solidUser,
+                          color:
+                              _surnameFocus.hasFocus ? focusColor : unFocusColor),
+                    ),
+                  ),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.only(left: 15.0),
@@ -212,9 +222,14 @@ class _ContactPageState extends State<ContactPage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  FaIcon(
-                    FontAwesomeIcons.phone,
-                    color: _phoneFocus.hasFocus ? focusColor : unFocusColor,
+                  SizedBox(
+                    width: 20,
+                    child: Center(
+                      child: FaIcon(
+                        FontAwesomeIcons.phone,
+                        color: _phoneFocus.hasFocus ? focusColor : unFocusColor,
+                      ),
+                    ),
                   ),
                   Expanded(
                     child: Padding(
@@ -252,9 +267,14 @@ class _ContactPageState extends State<ContactPage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  FaIcon(
-                    FontAwesomeIcons.pencil,
-                    color: _subjectFocus.hasFocus ? focusColor : unFocusColor,
+                  SizedBox(
+                    width: 20,
+                    child: Center(
+                      child: FaIcon(
+                        FontAwesomeIcons.pencil,
+                        color: _subjectFocus.hasFocus ? focusColor : unFocusColor,
+                      ),
+                    ),
                   ),
                   Expanded(
                     child: Padding(
@@ -292,11 +312,16 @@ class _ContactPageState extends State<ContactPage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 10.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.pencil,
-                      color: _descriptionFocus.hasFocus
-                          ? focusColor
-                          : unFocusColor,
+                    child: SizedBox(
+                      width: 20,
+                      child: Center(
+                        child: FaIcon(
+                          FontAwesomeIcons.pencil,
+                          color: _descriptionFocus.hasFocus
+                              ? focusColor
+                              : unFocusColor,
+                        ),
+                      ),
                     ),
                   ),
                   Expanded(

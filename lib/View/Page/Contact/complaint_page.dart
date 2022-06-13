@@ -34,6 +34,8 @@ class _ComplaintPageState extends State<ComplaintPage> {
   Color focusColor = AppColors.green;
   Color unFocusColor = AppColors.grey.withOpacity(.1);
 
+  int selectedDropValue;
+
   @override
   void initState() {
     _nameFocus.addListener(() {
@@ -136,9 +138,14 @@ class _ComplaintPageState extends State<ComplaintPage> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                FaIcon(
-                  FontAwesomeIcons.solidUser,
-                  color: _nameFocus.hasFocus ? focusColor : unFocusColor,
+                SizedBox(
+                  width: 20,
+                  child: Center(
+                    child: FaIcon(
+                      FontAwesomeIcons.solidUser,
+                      color: _nameFocus.hasFocus ? focusColor : unFocusColor,
+                    ),
+                  ),
                 ),
                 Expanded(
                   child: Padding(
@@ -173,9 +180,14 @@ class _ComplaintPageState extends State<ComplaintPage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  FaIcon(FontAwesomeIcons.solidUser,
-                      color:
-                          _surnameFocus.hasFocus ? focusColor : unFocusColor),
+                  SizedBox(
+                    width: 20,
+                    child: Center(
+                      child: FaIcon(FontAwesomeIcons.solidUser,
+                          color:
+                              _surnameFocus.hasFocus ? focusColor : unFocusColor),
+                    ),
+                  ),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.only(left: 15.0),
@@ -209,9 +221,14 @@ class _ComplaintPageState extends State<ComplaintPage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  FaIcon(
-                    FontAwesomeIcons.phone,
-                    color: _phoneFocus.hasFocus ? focusColor : unFocusColor,
+                  SizedBox(
+                    width: 20,
+                    child: Center(
+                      child: FaIcon(
+                        FontAwesomeIcons.phone,
+                        color: _phoneFocus.hasFocus ? focusColor : unFocusColor,
+                      ),
+                    ),
                   ),
                   Expanded(
                     child: Padding(
@@ -234,6 +251,85 @@ class _ComplaintPageState extends State<ComplaintPage> {
         ),
         Padding(
           padding: const EdgeInsets.only(top: 20.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: unFocusColor.withOpacity(.1),
+              border: Border.all(
+                width: 2,
+                color: unFocusColor,
+              ),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: DropdownButton(
+                isExpanded: true,
+                value: selectedDropValue,
+                hint: Padding(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                        child: Center(
+                          child: FaIcon(
+                            FontAwesomeIcons.locationDot,
+                            color: unFocusColor,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15.0),
+                          child: Text(
+                            "Mahalle Seçiniz",
+                            style: GoogleFonts.montserrat(),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                icon: const Padding(
+                  padding: EdgeInsets.only(right: 20.0),
+                  child: FaIcon(FontAwesomeIcons.chevronDown),
+                ),
+                underline: const SizedBox(),
+                items: [
+                  DropdownMenuItem(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Text(
+                        "test",
+                        style: GoogleFonts.montserrat(
+                          fontSize: 14,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    value: 0,
+                  ),
+                  DropdownMenuItem(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Text(
+                        "test2",
+                        style: GoogleFonts.montserrat(
+                          fontSize: 14,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    value: 1,
+                  ),
+                ],
+                onChanged: (index) {
+                  setState(() {
+                    selectedDropValue = index;
+                  });
+                }),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0),
           child: DecoratedBox(
             decoration: BoxDecoration(
                 color: _subjectFocus.hasFocus
@@ -249,9 +345,14 @@ class _ComplaintPageState extends State<ComplaintPage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  FaIcon(
-                    FontAwesomeIcons.pencil,
-                    color: _subjectFocus.hasFocus ? focusColor : unFocusColor,
+                  SizedBox(
+                    width: 20,
+                    child: Center(
+                      child: FaIcon(
+                        FontAwesomeIcons.pencil,
+                        color: _subjectFocus.hasFocus ? focusColor : unFocusColor,
+                      ),
+                    ),
                   ),
                   Expanded(
                     child: Padding(
@@ -289,11 +390,16 @@ class _ComplaintPageState extends State<ComplaintPage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 10.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.pencil,
-                      color: _descriptionFocus.hasFocus
-                          ? focusColor
-                          : unFocusColor,
+                    child: SizedBox(
+                      width: 20,
+                      child: Center(
+                        child: FaIcon(
+                          FontAwesomeIcons.pencil,
+                          color: _descriptionFocus.hasFocus
+                              ? focusColor
+                              : unFocusColor,
+                        ),
+                      ),
                     ),
                   ),
                   Expanded(

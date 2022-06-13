@@ -31,17 +31,17 @@ class _NotificationsPageState extends State<NotificationsPage>
     super.dispose();
   }
 
-  List<Widget> profileTabList(BuildContext context) => const [
+  List<Widget> profileTabList(BuildContext context) => [
         Center(
           child: Text(
             "YEREL",
-            style: TextStyle(color: Colors.black),
+            style: GoogleFonts.montserrat(color: Colors.black),
           ),
         ),
         Center(
           child: Text(
             "GLOBAL",
-            style: TextStyle(color: Colors.black),
+            style: GoogleFonts.montserrat(color: Colors.black),
           ),
         ),
       ];

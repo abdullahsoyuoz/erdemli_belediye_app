@@ -1,6 +1,5 @@
 import 'package:erdemli_bel_app/Controller/main_page_view_provider.dart';
 import 'package:erdemli_bel_app/View/Page/Contact/history_page.dart';
-import 'package:erdemli_bel_app/View/View/main_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
