@@ -1,4 +1,4 @@
-package com.example.erdemli_bel_app
+package tr.bel.erdemli
 
 import io.flutter.embedding.android.FlutterActivity
 

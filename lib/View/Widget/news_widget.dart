@@ -44,7 +44,14 @@ class NewsWidget extends StatelessWidget {
                                   color: Colors.black,
                                   fontSize: 17,
                                   height: 1.5,
-                                  fontWeight: FontWeight.w400),
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              data.description,
+                              style: GoogleFonts.montserrat(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w200),
                             ),
                           ],
                         )),

@@ -139,12 +139,12 @@ class OnboardModel {
 List<OnboardModel> onboardList = [
   OnboardModel(
       id: 0,
-      title: Faker().lorem.sentence().toString(),
-      description: Faker().lorem.sentences(2).toString(),
+      title: "Erdemli belediyesi uygulamasına hoş geldiniz!",
+      description: "Haberler, Duyurular, Etkinlikler, Cenaze, Projeler gibi durumlardan haberdar olun!",
       icon: FontAwesomeIcons.newspaper),
   OnboardModel(
       id: 1,
-      title: Faker().lorem.sentence().toString(),
-      description: Faker().lorem.sentences(2).toString(),
+      title: "İstediğiniz Kategoriye Ait Bildirim Alın",
+      description: "İster Haber, İster Duyurular, İsterse de Etkinlikler gibi bir çok kategoriye ait bildirimleri istediğiniz zaman alabilirsiniz.",
       icon: FontAwesomeIcons.bell),
 ];

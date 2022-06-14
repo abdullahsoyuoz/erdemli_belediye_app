@@ -5,7 +5,7 @@ import 'package:faker/faker.dart';
 
 String videoUrl = "vvED8ENPAlQ";
 
-class News {
+class SliderData {
   String title;
   String description;
   String imageUrl;
@@ -15,7 +15,7 @@ class News {
   bool containPhotos;
   DateTime dateTime;
   Categories category;
-  News({
+  SliderData({
     this.description,
     this.imageUrl,
     this.videoUrl,
@@ -28,13 +28,23 @@ class News {
   });
 }
 
-List<News> newsList = List.generate(40, (index) {
+List<SliderData> sliderList = List.generate(40, (index) {
   var rand = Random().nextBool();
   var randPhoto = Random().nextBool();
-  return News(
-      title: "Tatilcilerin Gözdesi Karavan Park",
-      description: "Deniz,  kum, güneş ve doğa ile iç içe tatil geçirmek isteyenler, çadır ve karavan turizmine yöneliyor,  yüzleri gülüyor.",
-      imageUrl: "https://erdemli.bel.tr/tema/belediye/uploads/haberler/manset/tatilcilerin-gozdesi-karavan-park.jpg",
+  return SliderData(
+      title: Faker()
+          .lorem
+          .sentences(2)
+          .toString()
+          .replaceAll("[", "")
+          .replaceAll("]", ""),
+      description: Faker()
+          .lorem
+          .sentences(36)
+          .toString()
+          .replaceAll("[", "")
+          .replaceAll("]", ""),
+      imageUrl: Faker().image.image(keywords: ['news']),
       videoUrl: videoUrl,
       containVideo: rand,
       containPhotos: randPhoto,

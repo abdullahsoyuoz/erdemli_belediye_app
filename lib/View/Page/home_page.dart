@@ -16,6 +16,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
+import '../../Model/Dummy/slider.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
 
@@ -116,7 +118,7 @@ class _HomePageState extends State<HomePage>
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: CarouselSlider(
-          items: newsList
+          items: sliderList
               .map((e) => SliderNewsItem(
                     data: e,
                   ))
